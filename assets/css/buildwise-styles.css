@@ -1,0 +1,413 @@
+:root {
+    --buildwise-orange: #E15A2A;
+    --buildwise-orange-light: #F47350;
+    --buildwise-orange-dark: #C84820;
+    --buildwise-blue: #1A5490;
+    --buildwise-blue-light: #2A6BB0;
+    --buildwise-blue-dark: #0F3D70;
+    --buildwise-green: #8BAE3D;
+    --buildwise-green-light: #A3C55A;
+    --buildwise-green-dark: #6F8E2A;
+    --buildwise-gray: #F8F8F8;
+    --buildwise-gray-dark: #4A4A4A;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.logo-container img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
+    transition: transform 0.3s ease;
+}
+
+.logo-container img:hover {
+    transform: scale(1.05);
+}
+
+.company-info {
+    text-align: left;
+}
+
+.company-info h1 {
+    color: var(--buildwise-orange);
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-shadow: 1px 2px 3px rgba(0,0,0,0.1);
+}
+
+.company-info .tagline {
+    color: var(--buildwise-green);
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.header-card {
+    background: linear-gradient(135deg, white 0%, #f0f4f8 100%);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    border-top: 4px solid var(--buildwise-orange);
+    position: relative;
+    overflow: hidden;
+}
+
+.header-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -50px;
+    width: 100px;
+    height: 100px;
+    background: var(--buildwise-green);
+    opacity: 0.1;
+    border-radius: 50%;
+}
+
+.header-card::after {
+    content: "";
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 80px;
+    height: 80px;
+    background: var(--buildwise-blue);
+    opacity: 0.1;
+    border-radius: 50%;
+}
+
+.form-card {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+}
+
+.form-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+}
+
+.section-header {
+    color: var(--buildwise-blue);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--buildwise-orange);
+    position: relative;
+}
+
+.section-header::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--buildwise-green);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    color: var(--buildwise-gray-dark);
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.form-label .required {
+    color: var(--buildwise-orange);
+    font-weight: bold;
+}
+
+.form-input,
+.form-select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-input:focus,
+.form-select:focus {
+    outline: none;
+    border-color: var(--buildwise-blue);
+    box-shadow: 0 0 0 3px rgba(26, 84, 144, 0.1);
+    transform: translateY(-1px);
+}
+
+.form-input:hover,
+.form-select:hover {
+    border-color: var(--buildwise-blue-light);
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+.checkbox-container:hover {
+    background: var(--buildwise-gray);
+}
+
+.checkbox-input {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+    accent-color: var(--buildwise-green);
+    cursor: pointer;
+}
+
+.checkbox-label {
+    color: var(--buildwise-gray-dark);
+    font-size: 0.95rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--buildwise-orange) 0%, var(--buildwise-orange-dark) 100%);
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(225, 90, 42, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(225, 90, 42, 0.4);
+    background: linear-gradient(135deg, var(--buildwise-orange-light) 0%, var(--buildwise-orange) 100%);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(225, 90, 42, 0.3);
+}
+
+.btn-primary.loading {
+    background: linear-gradient(135deg, var(--buildwise-blue) 0%, var(--buildwise-blue-dark) 100%);
+    pointer-events: none;
+    position: relative;
+}
+
+.btn-primary.loading::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 2px solid white;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.message-container {
+    margin-top: 30px;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.success-message {
+    background: linear-gradient(135deg, #d4f4dd 0%, #c8f0d6 100%);
+    border: 2px solid var(--buildwise-green);
+    color: var(--buildwise-green-dark);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 5px 15px rgba(139, 174, 61, 0.2);
+}
+
+.success-icon {
+    width: 30px;
+    height: 30px;
+    background: var(--buildwise-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.error-message {
+    background: linear-gradient(135deg, #ffe0db 0%, #ffd4ce 100%);
+    border: 2px solid var(--buildwise-orange);
+    color: var(--buildwise-orange-dark);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 5px 15px rgba(225, 90, 42, 0.2);
+}
+
+.error-icon {
+    width: 30px;
+    height: 30px;
+    background: var(--buildwise-orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.help-text {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.file-upload-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+}
+
+.file-upload-wrapper input[type=file] {
+    position: absolute;
+    left: -9999px;
+}
+
+.file-upload-label {
+    display: block;
+    padding: 12px 15px;
+    background: linear-gradient(135deg, var(--buildwise-blue-light) 0%, var(--buildwise-blue) 100%);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.file-upload-label:hover {
+    background: linear-gradient(135deg, var(--buildwise-blue) 0%, var(--buildwise-blue-dark) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(26, 84, 144, 0.3);
+}
+
+.position-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--buildwise-green) 0%, var(--buildwise-green-dark) 100%);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 3px 10px rgba(139, 174, 61, 0.3);
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .logo-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .company-info {
+        text-align: center;
+    }
+
+    .company-info h1 {
+        font-size: 2rem;
+    }
+
+    .form-card {
+        padding: 25px;
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.section-divider {
+    height: 2px;
+    background: linear-gradient(90deg, var(--buildwise-orange) 0%, var(--buildwise-green) 50%, var(--buildwise-blue) 100%);
+    margin: 30px 0;
+    border-radius: 1px;
+}
