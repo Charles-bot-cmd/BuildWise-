@@ -44,6 +44,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Collect form data
             const formData = await collectFormData();
 
+            console.log('Submitting form data:', formData);
+
             // Send to webhook
             const response = await fetch('https://n8n.srv946784.hstgr.cloud/webhook/Buildwise', {
                 method: 'POST',
@@ -53,11 +55,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 body: JSON.stringify(formData)
             });
 
+            console.log('Response status:', response.status);
+
             if (response.ok) {
                 showSuccess();
                 form.reset();
+                // Reset file input label
+                const fileLabel = document.querySelector('label[for="resume"].file-upload-label');
+                fileLabel.textContent = 'Choose File - Resume/CV';
+                fileLabel.style.background = 'linear-gradient(135deg, #2A6BB0 0%, #1A5490 100%)';
             } else {
                 const errorData = await response.text();
+                console.error('Server error:', errorData);
                 showError(`Server error: ${response.status} - ${errorData || 'Unknown error'}`);
             }
         } catch (error) {
@@ -107,8 +116,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // Convert resume to base64
         const resumeFile = document.getElementById('resume').files[0];
         let resumeBase64 = '';
+        let resumeFileName = '';
         if (resumeFile) {
             resumeBase64 = await fileToBase64(resumeFile);
+            resumeFileName = resumeFile.name;
+            console.log('Resume file processed:', resumeFileName, 'Size:', resumeFile.size, 'bytes');
         }
 
         // Build JSON object
@@ -122,6 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
             computer_skills: computerSkills,
             driver_license: driverLicense,
             resume_base64: resumeBase64,
+            resume_filename: resumeFileName,
             application_answers: {
                 available_start: startDate,
                 notice_period: noticePeriod
